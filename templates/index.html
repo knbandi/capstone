@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+    <title>Sentiment Based Product Recommendation System</title>
+</head>
+<body>
+    <h1 align="center">Sentiment Based Product Recommendation System</h1>
+    <div>
+        <div>
+            <form align="center" action="{{ url_for('recommend_products')}}"method="post" autocomplete="off">
+                <h3>Please type a username to find top 5 product recommendations based on their review sentiments</h3>
+                <span>username <input name="username" required="required"/> <button type="submit">Submit</button></span>
+            </form>
+        </div>
+        <br/>
+        <div align="center">
+            <table>
+                {% for product in products %}
+                <tr>
+                    <td>
+                        {{ product }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+
+            <table>
+                <tr>
+                    <td>
+                        {{ error }}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br/>
+        <hr>
+        <div>
+            <h5 align="left">Example user names</h5>
+            <table>
+                <tr><td>tootsie23</td></tr>
+                <tr><td>scampertim</td></tr>
+                <tr><td>rebecca</td></tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
